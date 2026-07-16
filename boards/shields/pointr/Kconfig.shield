@@ -1,0 +1,5 @@
+config SHIELD_POINTR_LEFT
+    def_bool $(shields_list_contains,pointr_left)
+
+config SHIELD_POINTR_RIGHT
+    def_bool $(shields_list_contains,pointr_right)

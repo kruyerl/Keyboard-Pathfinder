@@ -1,0 +1,12 @@
+if SHIELD_POINTR_RIGHT
+    config ZMK_KEYBOARD_NAME
+        default "pointr"
+
+    config ZMK_SPLIT_ROLE_CENTRAL
+        default y
+endif
+
+if SHIELD_POINTR_LEFT || SHIELD_POINTR_RIGHT
+    config ZMK_SPLIT
+        default y
+endif
