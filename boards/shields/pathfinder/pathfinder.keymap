@@ -96,8 +96,9 @@ combo_##NAME { \
     COMBO(escape2,&kp ESC,7 8)
     COMBO(tab1,&kp TAB,2 3)
     COMBO(tab2,&kp TAB,6 7)
-    COMBO(vim_exit,&vim_exit,25 26)
-    COMBO(vim_write,&vim_write,26 27)
+    COMBO(click1, &mkp MB1, 26 27)
+    COMBO(click1, &mkp MB3, 27 28)
+    COMBO(click2, &mkp MB2, 28 29)
   };
 
   behaviors {
