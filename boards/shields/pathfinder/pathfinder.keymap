@@ -97,7 +97,7 @@ combo_##NAME { \
     COMBO(tab1,&kp TAB,2 3)
     COMBO(tab2,&kp TAB,6 7)
     COMBO(click1, &mkp MB1, 26 27)
-    COMBO(click1, &mkp MB3, 27 28)
+    COMBO(click3, &mkp MB3, 27 28)
     COMBO(click2, &mkp MB2, 28 29)
   };
 
