@@ -48,17 +48,23 @@ combo_##NAME { \
       #binding-cells = <0>;
       bindings = <&macro_press &kp LGUI>, <&macro_tap &kp TAB>, <&macro_release &kp LGUI>;
     };
-    // Ctrl + Alt + Del
-    ctrl_alt_del: ctrl_alt_del {
+    // Win CMD Pallete
+    win_cmd: win_cmd {
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
-      bindings = <&macro_press &kp LCTRL &kp LALT>, <&macro_tap &kp DEL>, <&macro_release &kp LCTRL &kp LALT>;
+      bindings = <&macro_press &kp LALT>, <&macro_tap &kp SPACE>, <&macro_release &kp LALT>;
     };
     // Alt + F4
     alt_ff: alt_ff {
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
       bindings = <&macro_press &kp LALT>, <&macro_tap &kp F4>, <&macro_release &kp LALT>;
+    };
+    // Ctrl + Alt + Del
+    ctrl_alt_del: ctrl_alt_del {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings = <&macro_press &kp LCTRL &kp LALT>, <&macro_tap &kp DEL>, <&macro_release &kp LCTRL &kp LALT>;
     };
   };
 
