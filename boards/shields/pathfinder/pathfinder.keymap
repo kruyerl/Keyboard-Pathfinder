@@ -154,7 +154,7 @@ combo_##NAME { \
       compatible = "zmk,behavior-tap-dance";
       #binding-cells = <0>;
       tapping-term-ms = <200>;
-      bindings = <&alt_tab>, <&win_tab>;
+      bindings = <&alt_tab>, <&win_tab>, <&win_cmd>;
     };
 
   };
