@@ -1,3 +1,4 @@
+// Includes:
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/mouse.h>
@@ -6,7 +7,7 @@
 #include <dt-bindings/zmk/outputs.h>
 #include "mouse.dtsi"
 
-
+// Defines:
 #define COMBO(NAME, BINDINGS, KEYPOS) \
 combo_##NAME { \
     timeout-ms = <50>; \
@@ -14,25 +15,27 @@ combo_##NAME { \
     key-positions = <KEYPOS>; \
     layers = <0>; \
 };
-
 #define BASE 0
 #define ALT 1
 #define SYMBOLS 2
 #define SYSTEM 3
 #define GAMING 4
-#define GAMINGALT 5
-#define KEYBOARD 6
-#define SCROLL 7
+#define MOUSE 5
+#define SCROLL 6
 
 // Behavior Overrides
+
+
+// TODO: Is this necessary, can it be cleaned up, put elsewhere or removed entired entirely
 &lt {
   tapping-term-ms = <200>;
   flavor = "hold-preferred";
 };
 
-&soft_off {
-  hold-time-ms = <5000>; // Only turn off it the key is held for 5 seconds or longer.
-};
+// TODO:  Enable layer 2 when the trackball moves, and revert back 1000ms after motion stops */
+// &trackball_listener {
+//    input-processors = <&zip_temp_layer 2 1000>;
+// };
 
 / {
   macros {
@@ -84,16 +87,9 @@ combo_##NAME { \
     //  20 21 22 23 24 		25 26 27 28 29
     //        30 31 32		33 34 35
 
-    COMBO(to_layer,&to 4,31 32 33 34)
-    COMBO(escape0,&kp ESC, 0 1)
+    COMBO(to_gaming,&to 4,31 32 33 34)
     COMBO(escape1,&kp ESC, 1 2)
-    COMBO(escape2,&kp ESC,7 8)
     COMBO(tab1,&kp TAB,2 3)
-    COMBO(tab2,&kp TAB,6 7)
-    COMBO(click1, &mkp MB1, 26 27)
-    COMBO(click3, &mkp MB3, 27 28)
-    COMBO(click2, &mkp MB2, 28 29)
-    COMBO(scoll, &mo 7, 25 26)
   };
 
   behaviors {
@@ -144,12 +140,6 @@ combo_##NAME { \
       tapping-term-ms = <200>;
       bindings = <&kp N1>, <&kp N2>, <&kp N3>;
     };
-    td_mouse_alt: tap_dance_mouse_0 {
-      compatible = "zmk,behavior-tap-dance";
-      #binding-cells = <0>;
-      tapping-term-ms = <200>;
-      bindings = <&mkp MB2>, <&mkp MB3>;
-    };
     td_nav_button: tap_dance_nav_0 {
       compatible = "zmk,behavior-tap-dance";
       #binding-cells = <0>;
@@ -162,21 +152,22 @@ combo_##NAME { \
   keymap {
     compatible = "zmk,keymap";
 
-    base_layer {      display-name = "Base";
+    base_layer {      
+      display-name = "Base";
       bindings = <
-        &kp Q         &kp W         &kp E       &kp R       &kp T         &kp Y     &kp U       &kp I       &kp O       &kp P
-        &lhm LSHIFT A  &lhm LCTRL S   &lhm LALT D  &lhm LGUI F  &kp G     &kp H     &rhm RGUI J  &rhm RALT K  &rhm RCTRL L &rh_bs RSHIFT BSPC
-        &kp Z         &kp X         &kp C       &kp V       &kp B         &kp N     &kp M       &kp COMMA   &kp DOT     &kp DEL 
-                                    &td_nav_button  &kp SPACE   &lt 1 TAB     &lt 2 ESC &ent LSHIFT ENTER   
+        &kp Q           &kp W         &kp E        &kp R        &kp T      &kp Y     &kp U        &kp I        &kp O         &kp P
+        &lhm LSHIFT A   &lhm LCTRL S  &lhm LALT D  &lhm LGUI F  &kp G      &kp H     &rhm RGUI J  &rhm RALT K  &rhm RCTRL L  &rh_bs RSHIFT BSPC
+        &kp Z           &kp X         &kp C        &kp V        &kp B      &kp N     &kp M        &kp COMMA    &kp DOT       &kp DEL 
+        &td_nav_button  &kp SPACE     &lt 1 TAB                            &lt 2 ESC    &ent LSHIFT ENTER   
       > ;
     };
     alt_layer {
       display-name = "Alt";
       bindings = <
-        &kp N1      &kp N2      &kp N3      &kp  N4     &kp N5            &kp N6          &kp N7          &kp N8          &kp N9          &kp N0
-        &sk LSHIFT  &sk LCTRL   &sk LALT    &mkp MB1    &mo 7          &kp LEFT        &kp DOWN        &kp UP          &kp RIGHT       &trans      
-        &alt_ff     &kp CAPS    &kp PSCRN   &mkp MB2    &mkp MB3             &trans &trans &trans  &trans &trans
-        &trans      &trans      &trans            &trans          &trans          
+        &kp N1      &kp N2      &kp N3      &kp  N4     &kp N5         &kp N6     &kp N7     &kp N8   &kp N9      &kp N0
+        &sk LSHIFT  &sk LCTRL   &sk LALT    &mkp MB1    &mo 6          &kp LEFT   &kp DOWN   &kp UP   &kp RIGHT   &trans      
+        &alt_ff     &kp CAPS    &kp PSCRN   &mkp MB2    &mkp MB3       &trans     &trans     &trans   &trans      &trans
+        &trans      &trans      &trans                                 &trans     &trans          
       >;
 
     };
@@ -186,18 +177,18 @@ combo_##NAME { \
         &kp EXCL     &kp QMARK    &kp SQT     &kp DQT     &kp GRAVE      &kp CARET     &kp AMPS      &kp TILDE     &kp UNDER     &kp PIPE
         &kp LPAR     &kp LBKT     &kp LT      &kp LBRC    &kp COLON      &kp EQUAL     &kp PLUS      &kp MINUS     &kp STAR     &kp FSLH
         &kp RPAR     &kp RBKT     &kp GT      &kp RBRC    &kp SEMI       &kp AT        &kp POUND     &kp DLLR     &kp PRCNT     &kp BSLH
-                                  &trans      &trans      &trans         &trans        &trans        
+        &trans      &trans      &trans                                   &trans        &trans        
       >;
 
     };
     system_layer {
       display-name = "System";
       bindings = <
-        &kp F1      &kp F2        &kp F3        &kp F4      &kp F5        &kp F6       &kp F7        &kp F8        &kp F9      &kp F10
-        &sk LSHIFT  &sk LCTRL     &sk LALT      &sk LGUI    &kp C_PP      &kp SLCK     &kp KP_NUM    &kp C_RESET   &kp F11     &kp F12
-        &alt_ff     &kp CAPS      &kp PSCRN     &kp C_AL_CONTROL_PANEL  &ctrl_alt_del  &kp HOME     &kp PG_DN     &kp PG_UP     &kp END     &kp INSERT
-        &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT    &kp HOME     &kp PG_DN     &kp PG_UP     &kp END     &kp INSERT
-                                  &trans        &to 4       &trans        &trans       &to 6         
+        &kp F1       &kp F2        &kp F3         &kp F4         &kp F5         &kp F6        &kp F7        &kp F8        &kp F9        &kp F10
+        &trans       &trans        &trans &trans  &trans         &to 4         &kp SLCK      &kp KP_NUM    &kp C_RESET   &kp F11       &kp F12
+        &trans       &kp CAPS      &kp PSCRN      &alt_ff        &ctrl_alt_del  &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       &kp INSERT
+        &kp C_MUTE   &kp C_VOL_DN  &kp C_VOL_UP   &kp C_PREV     &kp C_NEXT     &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &BT_CLR        
+        &trans       &trans        &trans                                       &trans        &trans         
       >;
     };
     gaming_layer {
@@ -206,35 +197,26 @@ combo_##NAME { \
         &kp TAB    &kp Q    &kp W     &kp E     &kp R     &kp Y     &kp U     &kp I     &kp O      &kp P
         &kp LSHIFT &kp A    &kp S     &kp D     &kp F     &kp H     &kp J     &kp K     &kp L      &kp BSPC
         &kp LCTRL  &kp Z    &kp X     &kp C     &kp V     &kp N     &kp M     &kp COMMA &kp DOT    &kp DEL
-                            &kp LALT  &kp SPACE &mo 5     &kp ESC   &to 0     
+        &kp LALT  &kp SPACE &trans                        &kp ESC   &to 0     
       >;
-    };
-    gaming_alt_layer {
-      display-name = "GamingAlt";
+mouse_layer {
+      display-name = "Mouse";
       bindings = <
-        &kp ESC    &kp N1       &kp N2       &kp N3      &kp T     &trans     &trans     &kp UP      &trans      &trans
-        &trans     &kp N4       &kp N5       &kp N6      &kp G     &trans     &kp LEFT   &kp DOWN    &kp RIGHT   &trans
-        &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &trans      &kp B     &trans     &trans     &trans      &trans      &trans
-        &trans     &trans     &trans     &trans      &trans    
-      >;
+        &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
+        &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
+        &trans     &trans     &trans     &trans     &trans     &trans     &mkp MB1   &mkp MB2   &mkp MB3   &mo 6
+        &trans     &trans     &trans     &trans     &trans
+          >;
     };
-    keyboard_layer {
-      display-name = "Keyboard";
-      bindings = <
-        &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 5      &kp T   &kp E   &kp S   &kp T   &kp EXCL 
-        &none           &none           &none         &bt BT_PRV    &bt BT_NXT        &kp N1  &kp N2  &kp N3  &kp N4  &kp N5
-        &soft_off       &none           &none         &bt BT_CLR    &bt BT_CLR_ALL    &none   &none   &none   &none   &none
-        &trans          &trans          &trans        &trans        &to 0             
-      >;
-    };
+
     scroll_layer {
       display-name = "Scroll";
       bindings = <
         &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
         &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
         &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
-                  &trans     &trans     &trans     &trans     &trans
-      >;
+        &trans     &trans     &trans     &trans     &trans
+          >;
     };
 
   };
