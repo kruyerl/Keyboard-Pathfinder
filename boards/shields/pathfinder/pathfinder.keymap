@@ -23,6 +23,11 @@ combo_##NAME { \
 #define MOUSE 5
 #define SCROLL 6
 
+// Enable mouse layer while the trackball is moving, then return after 1000ms idle.
+// https://zmk.dev/docs/keymaps/input-processors/temp-layer
+&trackball_listener {
+  input-processors = <&zip_temp_layer 5 1000>;
+};
 / {
   macros {
     // Alt + Tab
