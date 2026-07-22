@@ -22,6 +22,7 @@ combo_##NAME { \
 #define GAMING 4
 #define MOUSE 5
 #define SCROLL 6
+#define SNIPE 7
 
 / {
   macros {
@@ -198,7 +199,7 @@ mouse_layer {
       bindings = <
         &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
         &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
-        &trans     &trans     &trans     &trans     &trans     &trans     &mkp MB1   &mkp MB2   &mkp MB3   &mo 6
+        &trans     &trans     &trans     &trans     &trans     &mo 7     &mkp MB1   &mkp MB2   &mkp MB3   &mo 6
         &trans     &trans     &trans     &trans     &trans
           >;
     };
@@ -212,5 +213,15 @@ mouse_layer {
         &trans     &trans     &trans     &trans     &trans
           >;
     };
+snipe_layer {
+      display-name = "Snipe";
+      bindings = <
+        &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
+        &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
+        &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
+        &trans     &trans     &trans     &trans     &trans
+          >;
+    };
+
   };
 };
