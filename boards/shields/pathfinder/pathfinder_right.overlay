@@ -55,19 +55,13 @@
         irq-gpios = <&gpio0 20 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         // snipe-layers = <1>;
         scroll-layers = <7>;
-        // automouse-layer = <4>;
+        automouse-layer = <5>;
     };
 };
 
 / {
-    zip_temp_layer: zip_temp_layer {
-        compatible = "zmk,input-processor-temp-layer";
-        #input-processor-cells = <2>;
-    };
-
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        input-processors = <&zip_temp_layer 5 1000>;
     };
 };
