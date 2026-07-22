@@ -159,8 +159,8 @@ combo_##NAME { \
       display-name = "Alt";
       bindings = <
         &kp N1      &kp N2      &kp N3      &kp  N4     &kp N5         &kp N6     &kp N7     &kp N8   &kp N9      &kp N0
-        &sk LSHIFT  &sk LCTRL   &sk LALT    &mkp MB1    &mo 6          &kp LEFT   &kp DOWN   &kp UP   &kp RIGHT   &trans      
-        &alt_ff     &kp CAPS    &kp PSCRN   &mkp MB2    &mkp MB3       &trans     &trans     &trans   &trans      &trans
+        &sk LSHIFT  &sk LCTRL   &sk LALT    &sk LGUI    &trans         &kp LEFT   &kp DOWN   &kp UP   &kp RIGHT   &trans      
+        &alt_ff     &kp CAPS    &kp PSCRN   &trans    &trans       &trans     &trans     &trans   &trans      &trans
         &trans      &trans      &trans                                 &trans     &trans          
       >;
 
@@ -199,7 +199,7 @@ mouse_layer {
       bindings = <
         &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
         &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
-        &trans     &trans     &trans     &trans     &trans     &mo 7      &mkp MB1   &mkp MB2   &mkp MB3    &mo 6
+        &trans     &trans     &trans     &trans     &trans     &mo 6      &mkp MB1   &mkp MB2   &mkp MB3    &mo 7
         &trans     &trans     &trans     &trans     &trans
           >;
     };
@@ -211,14 +211,14 @@ mouse_layer {
         &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
         &trans    &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
         &trans     &trans     &trans     &trans     &trans
-          >;
+          ii>
     };
 snipe_layer {
       display-name = "Snipe";
       bindings = <
         &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
         &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
-        &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
+        &trans     &trans     &trans     &trans     &trans     &mo 6      &mkp MB1   &mkp MB2   &mkp MB 3  &trans
         &trans     &trans     &trans     &trans     &trans
           >;
     };
