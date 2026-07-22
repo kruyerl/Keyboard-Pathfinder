@@ -77,7 +77,6 @@ combo_##NAME { \
     COMBO(to_gaming,&to 4,31 32 33 34)
     COMBO(escape1,&kp ESC, 1 2)
     COMBO(tab1,&kp TAB,2 3)
-    COMBO(scroll,&to 6,26 27)
   };
 
   behaviors {
