@@ -23,11 +23,6 @@ combo_##NAME { \
 #define MOUSE 5
 #define SCROLL 6
 
-// TODO:  Enable layer 2 when the trackball moves, and revert back 1000ms after motion stops */
-// &trackball_listener {
-//    input-processors = <&zip_temp_layer 2 1000>;
-// };
-
 / {
   macros {
     // Alt + Tab
