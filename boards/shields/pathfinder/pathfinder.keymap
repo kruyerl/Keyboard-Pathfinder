@@ -140,6 +140,13 @@ combo_##NAME { \
       tapping-term-ms = <200>;
       bindings = <&alt_tab>, <&win_tab>, <&win_cmd>;
     };
+    td_mouse_button: tap_mouse_0 {
+      compatible = "zmk,behavior-tap-dance";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&mkp MB2>, <&mkp MB3>;
+    };
+
   };
 
   keymap {
@@ -195,9 +202,9 @@ combo_##NAME { \
 mouse_layer {
       display-name = "Mouse";
       bindings = <
-        &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
-        &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
-        &trans     &trans     &trans     &trans     &trans     &mo 6      &mkp MB1   &mkp MB2   &mkp MB3    &mo 7
+        &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans            &trans     &trans
+        &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans            &trans     &trans
+        &trans     &trans     &trans     &trans     &trans     &trans     &mkp MB1   &td_mouse_button  &mo 6      &mo 7
         &trans     &trans     &trans     &trans     &trans
           >;
     };
