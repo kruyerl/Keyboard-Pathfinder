@@ -205,7 +205,7 @@ mouse_layer {
         &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans              &trans
         &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans              &trans
         &trans     &trans     &trans     &trans     &trans     &trans     &mkp MB1   &mo 7      &td_mouse_button    &mo 6     
-        &trans     &trans     &trans     &trans     &trans
+
           >;
     };
 
@@ -215,14 +215,14 @@ mouse_layer {
         &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
         &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
         &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans
-        &trans     &trans     &trans     &tran
+        &trans     &trans     &trans     &trans
           >;
     };
 snipe_layer {
       display-name = "Snipe";
       bindings = <
         &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans             &trans
-        &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans      &trans             &trans
+        &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans             &trans
         &trans     &trans     &trans     &trans     &trans     &trans     &mkp MB1   &mo 7      &td_mouse_button   &mo 6
         &trans     &trans     &trans     &trans     &trans
           >;
