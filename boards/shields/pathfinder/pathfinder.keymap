@@ -75,7 +75,7 @@ combo_##NAME { \
     //        30 31 32		33 34 35
 
     COMBO(to_gaming,&to 4,31 32 33 34)
-    COMBO(to_gaming,&mo 6,26 28)
+    COMBO(to_gaming,&mo 6,26 27 28)
     COMBO(escape1,&kp ESC, 1 2)
     COMBO(tab1,&kp TAB,2 3)
   };
