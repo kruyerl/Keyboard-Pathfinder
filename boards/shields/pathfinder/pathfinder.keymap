@@ -202,9 +202,9 @@ combo_##NAME { \
 mouse_layer {
       display-name = "Mouse";
       bindings = <
-        &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans            &trans     &trans
-        &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans            &trans     &trans
-        &trans     &trans     &trans     &trans     &trans     &trans     &mkp MB1   &td_mouse_button  &mo 6      &mo 7
+        &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans              &trans
+        &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans              &trans
+        &trans     &trans     &trans     &trans     &trans     &trans     &mkp MB1   &mo 7      &td_mouse_button    &mo 6     
         &trans     &trans     &trans     &trans     &trans
           >;
     };
