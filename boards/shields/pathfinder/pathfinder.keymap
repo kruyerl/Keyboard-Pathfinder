@@ -211,7 +211,7 @@ mouse_layer {
       display-name = "Mouse";
       bindings = <
         &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans              &trans
-        &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans     &trans              &trans
+        &mo 6      &mkp MB2   &mkp MB2   &mkp MB1   &trans     &trans     &trans      &trans     &trans             &trans
         &trans     &trans     &trans     &trans     &trans     &trans     &mkp MB1   &mo 7      &td_mouse_button    &mo 6     
 
           >;
